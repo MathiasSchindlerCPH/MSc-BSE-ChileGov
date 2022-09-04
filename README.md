@@ -1,3 +1,11 @@
+<!---
+<object data="https://drive.google.com/file/d/1k636xjMSPMQPJDPBj6cegNEgmXFL7tSu/preview" type="application/pdf" width="700px" height="700px">
+    <embed src="https://drive.google.com/file/d/1k636xjMSPMQPJDPBj6cegNEgmXFL7tSu/preview">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://drive.google.com/file/d/1k636xjMSPMQPJDPBj6cegNEgmXFL7tSu/preview">Download PDF</a>.</p>
+    </embed>
+</object>
+--->
+
 # Introduction
 This is the git repository for the master thesis challenge from the Chilean Government by Andrés Couble, Mathias Schindler and  Kalliope Stassinos at the Data Science for Decision Making Program at the Barcelona School of Economics, Class of '22. The final document of the thesis is the file `Report_Thesis.pdf`.
 
