@@ -1,0 +1,311 @@
+\section{Methodology}\label{sec_meth}
+    
+    This section describes a methodology to analyze Twitter conversation on a specific political topic over a given time frame in a given country. %Our developed methodology goes further than this as it can also be extended to any country of choice. 
+    
+        %\newline\indent
+    %Section \ref{sec_meth_corp} presents our methodology in general terms which allows to construct a Twitter corpus that can be used to analyze any political topic of choice in any country of interest. Section \ref{subsec_meth_label} addresses the wish of the CCO, that Chilean Twitter users be labeled and divided into left- and right-leaning political orientation. Section \ref{subsec_meth_net} downloads retweets information to allow network construction. Table \ref{tab_methodology_overview} presents a structured overview of the notebooks in our proposed methodology.    
+    
+    %Section \ref{sec_meth_chile_immig} presents our application of the methodology for the particular topic the CCO would like to have analyzed, i.e. immigration in Chile. 
+    
+    \subsection{Twitter API and \texttt{twarc2}}\label{sec_dat}
+
+    Twitter generously provides access for researchers to the full collection of tweets that are currently published on the microblogging website through their {\it Twitter API for Academic Research} service.%\footnote{Hence, tweets that get deleted are not available for download.}
+    \footnote{The methodology also works with Elevated Access Twitter API, free provided for non-academic projects.}
+    After being accepted through the company's application procedure, researchers are provided with an allowance of up to 10 M tweets per month to download. To archive Twitter data in \texttt{.json}-file format, we utilize the \texttt{twarc2} Python-based command line tool. %(see \cite{web_twarc} for more detailed information on the tool). 
+    \texttt{twarc2} allows users to specify the corpus of tweets to download by writing queries specifying e.g. keywords to filter by, hashtags, retweets, time frames, locations, etc. After downloading, the resulting datafile also includes metadata for each tweet such as number of likes, retweets, author characteristics, among others.
+        
+        \newline\indent
+    Unfortunately, the usage of geotagged tweets has declined from 2012 to 2022 following an announcment in mid-2019 that Twitter would remove the option to attach precise geotagging to tweets \citep{kruspe_changes_2021}. This complicates the task of building a country-specific corpus. Solely obtaining geotagged tweets would not yield a sample of sufficient size and raise concerns about the resulting sample being too biased.\footnote{Appendix Figure \ref{appfig_loc_twit_chi_12_22} shows the decline in geotagged tweets in Chile.} To address this issue we develop a novel methodology to filter non-geotagged tweets to citizens of a given country in Step 3 of Section \ref{sec_meth_gene}.
+    
+
+
+    \subsection{General Methodology}\label{sec_meth_gene}
+    
+    \subsubsection{Corpus Construction}\label{sec_meth_corp}
+        This presents our methodology in general terms which allows to construct a Twitter corpus that can be used to analyze any political topic of choice in any given country. The steps below are described briefly. For a more extensive description of the methodology see Appendix \ref{app_sec_meth}. Table \ref{tab_methodology_overview} presents a general overview of the entire methodology. This table might be of particular interest to practitioners.
+        
+        %\begin{enumerate}
+            %\item 
+            %Converting tweets to strings.
+            
+            %\item
+            %Lowercase enforcement.
+            
+            %\item
+            %Converting emojis into text with the \texttt{demojize} function from the \texttt{emoji} Python package.
+            
+            %\item
+            %Transforming the language's specific letters (e.g. á, é, ñ, etc.) to non-accentuated ones, using the \texttt{unidecode} package.
+        %\end{enumerate}
+        
+        \paragraph{Step 1: Exploring Topical Semantic Links as Search Keywords + \texttt{twarc2} Query 1} 
+        
+        \newline\indent
+        
+        Enter the word for the topic of choice into a platform such as \url{http://semantic-link.com/}. Manually select the most relevant words and store the list $L_{sem}$. Run the first \texttt{twarc2} query using the script 1.1 of the methodology, specifying keyword list $L_{sem}$, time frame and geotag the country of interest. %(See Appendix \ref{appsec_twarc_queries} for examples of \texttt{twarc2} queries.) 
+
+        
+%Using Twitter's API, it is possible to query and download all tweets containing a certain set of words, and specifying various options such as location, time, set of authors. (See Appendix \ref{appsec_twarc_queries} for examples of \texttt{twarc2} queries.) 
+
+%To obtain the first set of words, we recommend to search the topic's name (whether it is "ecology", "feminism", "immigration", etc.) in a platform that provides linked vocabulary. For example, the webpage \url{http://semantic-link.com/} takes one word as input and returns the top 100 related words based on Wikipedia articles.
+            
+%            To obtain the first set of words, we recommend to search the topic's name (whether it is "ecology", "feminism", "immigration", etc.) in a platform that provides linked vocabulary. For example, the webpage \url{http://semantic-link.com/} takes one word as input and returns the top 100 related words based on Wikipedia articles. Then, we propose to manually select words that are most relevant and related with the topic of interest. 
+%Manual input is required since the webpage is available in English only and does not possess domain knowledge.\footnote{Indeed, we have noted that the returned keywords by {\it Semantic Link} 
+
+%Once the first set of words is defined looking the web-page \href{semantic-link.com}, run the first \texttt{twarc2} query (specifying this set words, the time-frame and the location of interest) running the notebook provided, to obtain an exploratory corpus.
+
+%\paragraph{Validation} Defining the appropriate set of words is of great importance. Including a too narrow list in the tweet retrieve search, would potentially fail to capture relevant tweets. Specifying a too broad list, would potentially capture too much noise and risks exceeding the maximum download limits set by the API. The geo-location option ''\texttt{place\_country:}'' provided by the Twitter API is a 'blackbox' feature and is too restrictive.\footnote{The underlying algorithm determining that determines tweets' location is not publicly available.} In the next step we aim to address these issues, by improving the query. 
+
+%named \textcolor{red}{$<$insert notebook name$>$} in the \textcolor{red}{$<$insert folder$>$} directory.
+            
+%                \newline\indent
+%            \textbf{Instructions}: Once the set of words from {\it Semantic Link} is defined, run the first \texttt{twarc2} query specifying the words, the time-frame and the location of interest running the notebook named \textcolor{red}{$<$insert notebook name$>$} in the \textcolor{red}{$<$insert folder$>$} directory.
+            
+%                \newline\indent
+%            \textbf{Required Manual Input}: Filtered keywords form Semantic Link or another similar web page.
+        
+%                \newline\indent
+%            \textbf{Output}: Exploratory corpus with tweets containing the topic's related words (semantic link) and geolocated in the country chosen.
+
+            
+        \paragraph{Step 2: Adding Keywords from Twitter Contextual Data + \texttt{twarc2} Query 2}
+        
+        \newline\indent
+        
+            %The {\it Semantic Link} platform is not targeted for the use of Twitter data queries. Depending on the topic studied, the words returned by the platform might be irrelevant, relevant, and some might be omitted. 
+            To uncover the most relevant keywords, explore the 200 most common words and hashtags in the corpus from Step 1. Manually build a list of keywords related to the topic, $L_{t}$. Manually build another list of keywords related to the country of interest (e.g. relevant cities, president's surname, relevant politicians, etc.), $L_{c}$. %and by manually considering which of these would yield an appropriate corpus of relevant tweets,) to create a final list of keywords %(deciding on new words to be included).   to be added to the \texttt{twarc2} query.    
+            Run two \texttt{twarc} queries: 1) Tweets with keywords from $L_{t}$ and geolocated in the country of interest; 2) Tweets with keywords from $L_{t} + L_{c}$.%\footnote{The methodology scripts are prepared to run directly the two queries}
+            
+            %Once fixed on the final list of the topic's and the country's keywords, construct two queries. The first one retrieves all the tweets with the topic's keywords, geolocated in the country of interest. The second query retrieves all the tweets containing the topic's and the country's keywords.  
+            %(manual input like the name of the country, relevant cities, last name of the president and/or relevant politicians for instance).
+            This way, we obtain a broader corpus that should correspond better to topic and location of interest.
+%                \newline\indent
+%            \textbf{Instructions}: Run the notebook named \textcolor{red}{$<$insert notebook name$>$} in the \textcolor{red}{$<$insert folder$>$} directory adding the required manual input to obtain the new data from twarc.
+            
+%                \newline\indent
+%            \textbf{Required Manual Input}: New keywords after looking at the most popular words and hashtags for geo-located tweets. Country related keywords. 
+
+%                \newline\indent
+%            \textbf{Output}: Corpus with tweets that contain topic-related keywords (semantic link and contextual) and are geolocated or contain country related words.
+            
+
+
+            
+            %It does not always prove to be accurate and 
+            
+%            In the following step, we develop a novel method to filter the corpus such that it primarily is made up of citizens of the country of interest.\footnote{We deliberately use the wording {\it 'primarily'}, as we do not want to give the impression that we are perfectly able to distinguish the Citizenship of Twitter users. We are however, confident that our proposed methodology yields good results, given the various verification and exploration analysis performed \textcolor{red}{see following section}}
+    
+        \paragraph{Step 3: Filtering the Authors by the Country’s Location}
+        
+        \newline\indent
+        
+%            To analyze a specific political topic in a given country of interest it is necessary that the Twitter users in the corpus mainly consists of authors from the country of interest. To ensure this, we develop a novel methodology to filter non-geotagged tweets by Twitter users from the country of interest. As single geotagged tweets are a rarity, we extract information from Twitter users' self-written location and biographies.
+        
+        To filter the authors by location, we develop a novel methodology. We store a list of all the authors 
+        who's self-written account location or biography (or both) contains at least one of the following:
+            \begin{enumerate}
+                \item 
+                The country's flag as an emoji
+                
+                \item
+                The country as a regular expression -- including derivations thereof such as demonyms
+                
+                \item
+                The unambiguous cities of the country either as an $n$-gram or unigram\footnote{By 'unambiguous' we refer to city names in the country which are not also a city or country name in another country. This would disqualify cities names such as{\it 'Florida'}, {\it 'El Salvador'}, and so forth.} 
+            \end{enumerate}
+
+            This way we obtain a list primarily made up of citizens of the country of interest, present in the topic studied.\footnote{We deliberately use the wording {\it 'primarily'}, as we do not want to give the impression that we are perfectly able to distinguish the nationality or location of Twitter users. We are however, confident that our proposed methodology yields good results, given the various verification and exploration analysis we have performed while testing the methodology on immigration in Chile %\textcolor{red}{see following section}}
+            .}
+            
+%                \newline\indent
+%            \textbf{Instructions}: Run the notebook named \textcolor{red}{$<$insert notebook name$>$} in the \textcolor{red}{$<$insert folder$>$} directory.
+            
+%                \newline\indent
+%            \textbf{Required Manual Input}: $(i)$ Emoji code of the countries flag. $(ii)$ Country name as a regular expression. $(iii)$ List of cities of the country (code snippet to download this is already pre-programmet; just insert the URL-link of the relevant Wikipedia entry of list of citiies in country).
+
+%                \newline\indent
+%            \textbf{Output}: List of Twitter users that are citizens or located in the country of interest and are tweeting about the topic of interest.
+            
+          \\
+            \paragraph{Step 4: Recovering Topic-Related Tweets from the Country’s Citizens +  \texttt{twarc2} Query 3}
+          \newline\indent   
+            
+            %To recover the topic's relevant tweets, we search tweets using the list of topic-related keywords (from step 2), filtering by the list of citizens (from step 3).
+            
+            After obtaining the list of relevant authors from Step 3, this step downloads all tweets in relation to the topic's discussions. %\footnote{The \texttt{twarc2} query should include: the final topic keywords list (from Step 2), restricting by the list of country's authors (from step 3) and the studied time-frame.} 
+            This way we obtain the tweets regarding the topic of interest, for the studied time frame, written by the country's nationals or individuals located in the country.
+
+            
+%                \newline\indent
+%            \textbf{Instructions}: Run the notebook named \textcolor{red}{$<$insert notebook name$>$} in the \textcolor{red}{$<$insert folder$>$} directory.
+            
+%                \newline\indent
+%            \textbf{Required Manual Input}: Not required.
+
+%                \newline\indent
+%            \textbf{Output}: Corpus with tweets that contain topic related words (semantic link + country-contextual) and are tweeted by authors that are from the country of interest.
+        
+            
+%            \vspace{1em}
+            \newline\noindent
+            
+
+                
+                
+        \paragraph{Step 5: Filtering the Final Corpus by Topic} 
+        
+            \newline\noindent 
+            
+            Following \cite{conover_predicting_2011} and \cite{small2011hashtag} we propose a word- and hashtag-based filtering approach to clean the corpus such that it mainly consists of tweets regarding the topic of interest.\footnote{This step could also have been approached in other ways such as unsupervised machine learning algorithms to determine and filter topics \citep{hong2010empirical, zhao2011comparing, cataldi2010emerging}. However, in applications this would involve running various models for each topic of interest to determine whether a model performs sufficiently well, which necessitates employing statisticians to understand and evaluate model accuracy. For this reason, we believe utilizing unsupervised learning algorithms for this step does not meet the criteria that the developed methodology should be {\it ''easy-to-use''} nor {\it ''low-cost''}. It would also increase computational execution time. Given the importance of this step in corpus construction, we believe our proposed solution to this step with words and hashtags is the most appropriate for this specific objective.}
+            Looking at tweets not related with the topic, we drop the prominent non-relevant hashtags and words that create noise in the data. %We provide the code permitting to explore the data, and ease the words and hashtags filtering. 
+            The output from Step 5 is the final corpus for analysis.
+            
+            \paragraph{Suggested Validation}
+            After Step 5 we suggest reviewing a random sample of tweets in the corpus, to ensure that it mainly contains tweets from the country of interest and related to the topic. Otherwise, try to find words or hashtags to delete noise or try new searches changing the keywords.
+            
+            %\footnote{After this step, we analyzed the corpus again, to ensure that it contains mainly tweets about the topic of interest.} 
+            
+            
+            %This step requires manual input and basic  domain knowledge to determine if hashtags used in the corpus belong or not to the topic of interest.
+            
+%                \newline\indent
+%            \textbf{Instructions}: Run the notebook named \textcolor{red}{$<$insert notebook name$>$} in the \textcolor{red}{$<$insert folder$>$} directory.
+            
+%                \newline\indent
+%            \textbf{Required Manual Input}: Choosing the non-relevant hashtags and keywords creating noise in the data (looking at tweets not related with the topic).
+
+%                \newline\indent
+%            \textbf{Output}: Corpus with tweets that contain topic-related words (semantic link + country contextual) and are tweeted by Chilean Twitter users (from Step 3). 
+            
+
+        
+            \subsubsection{Labeling by Political Affiliation }\label{subsec_meth_label}
+            
+            %This Section addresses the wish of the CCO, that Twitter users be labeled and divided into left- and right-leaning political affiliation. Twitter does not provide an option to characterize users by their political affiliation. 
+            
+            For our political discussion analysis, distinguishing between different trending political topics between left and right-leaning Twitter users is of great interest. %In this section, we propose a methodology to construct a political affiliation feature. 
+            
+        \paragraph{Step 6: Classify Hashtags by Political Affiliation into Right- And Left-Leaning}
+        
+        \newline\indent
+
+        Following \cite{rao2010classifying}, we consider political hashtags as a proxy of political affiliation. Construct a list of right-wing and left-wing politicians. Download all the politicians' tweets in an appropriate time frame (e.g. an electoral period).\footnote{We suggest to consider the use of hashtags not directly related with the topic of interest to avoid bias. For instance, implementing a affiliation classification and then comparison on the same set of hashtags is problematic.} Identify the most-used hashtags by left- and right-wing politicians, respectively.
+        
+        
+        %The method assigning each Twitter user's political affiliations follows \cite{rao2010classifying} considering the use of political hashtags as a proxy of political affiliation. First, it is needed from the decision-maker to provide a list of right wing and left wing politicians. Then, choosing a period of time to analyze. We suggest using a period of time where it is easy to identify right and left positions (for instance, an electoral period). In addition, we suggest to consider the use of hashtags during a different period and not directly related with the topic of interest to avoid bias.\footnote{For instance, implementing a affiliation classification and then comparison on the same set of hashtags is problematic.} After downloading the tweets of the politicians, during their active time-line, we look at their most used hashtags (not including the generic ones). 
+
+        %This way, we obtain a list of most relevant hashtags associated with right wing and left wing politicians during the selected period.
+        
+        
+        
+%        With the politicians list and time-frame we download the tweet timeline and extract the most common hashtag for each affiliation. Finally, we propose to select the most relevant hashtags associated with right wing or left wing people.\footnote{When you have this information for the country of interest, it could be used for any topic in this country. It is not necessary to repeat this step for any single new topic to analyze.} 
+        
+%        \newline\indent
+%            \textbf{Required Manual Input}: List of right wing and left wing politicians, choose dates of the period to analyze the hashtags used. Manually filter the most common hashtags (eliminating generic ones). 
+
+%                \newline\indent
+%            \textbf{Output}: List of political hashtags associated with right wing and left wing people during the selected period.
+            
+            \paragraph{Step 7: Label Users by Political Affiliation}
+            
+            \newline\indent 
+            
+            To label the Twitter users from the main corpus, we recover their tweets that used political hashtags during the same period used in Step 6. Then, we construct a criterion to classify the nodes as 'left' or 'right' (and 'unlabeled' when not possible to classify) based on the frequency of hashtags found in their tweets. When higher thresholds are chosen, accuracy is higher for the left-right classification, but unlabeled becomes more heterogeneous (including neutral, as well as many left and right).\footnote{The current hashtag frequency threshold is high, to maximize accuracy of political patterns analysis. But the practitioner can easily choose a different criterion. }
+
+            This way, we obtain labels of political affiliation classification %(Right/Left/Unlabeled) 
+            for the users in our corpus.        
+        
+        %Once the political affiliation hashtags are specified, the aim is to label the users according to the frequency of hashtags found in their tweets. 
+        
+        %For this, first we recover the tweets associated to the list of political hashtags and the list of the country's authors during the same time-frame that was used before for politicians. Then, considering the raw corpus downloaded, we construct a criterion to classify the nodes as 'left', 'right' or 'unlabeled'. 
+        
+%        The criterion to label a user by "left" or "right" consists of fulfilling the two following requirements. First, the user has to be active in politics. We consider only users using more than a certain (manually chosen) number of right- or left-wing hashtags . \footnote{For example more than 40 hashtags, this number can be modified if the practitioner sees fit.} Second, the user has to be clearly supportive of one political side more than the other. We consider that the politically active users are supportive of a party if their use of left or right leaning hashtags are superior to a certain (manually chosen) threshold. \footnote{For example if a specific user uses more than 80 percent left-wing hashtags, he will be characterized as a member of the left.} All the users that do not satisfy the two requirements are labeled as “Unlabeled”.\footnote{} 
+
+%\newline\indent
+ %           \textbf{Required Manual Input}: Choose the criteria (number and proportion of political hashtags used).
+
+%                \newline\indent
+%            \textbf{Output}: Data Frame with political affiliation classification (Right/Left/Unlabeled) for the users of our corpus.
+
+            
+            \subsubsection{Network Construction }\label{third_meth_gene}\label{subsec_meth_net}
+            
+            In graph theory, a network is a collection of nodes (e.g. individual Twitter users) connected by edges (interactions such as retweets, likes, comments, etc.). When looking at information flows between users, retweets are the most relevant interactions to study.
+            
+            %When looking at information flows on micro-blogging platforms, it is interesting  to look at the reach of the information shared. For this reason, our nodes will consist of users discussing the topic of interest in the country of interest, and will be linked by their retweet interactions.
+            
+            
+            %On social medias such as Twitter various interactions (likes, retweets, comments) can occur between users. In this regard, it is relevant to look at topic discussions using networks analysis. 
+            %When looking at information flows on micro-blogging platforms, what is interesting  to look at is the reach of the information shared. For this reason, our nodes will consist of users discussing the topic of interest in the country of interest, and will be linked by their retweet interactions.
+            
+            %The graphs representing networks can be weighted, directed, k-partite, have latent communities, contain self-loops. 
+            
+  
+            \paragraph{Step 8: Construct Retweet Network}
+            
+            \newline\indent 
+            
+            To create the network of retweets for the selected topic we download all users' retweets in relation to the discussion, during the period studied.\footnote{For this, we go to \texttt{twarc} to download all the retweets from our list of users that contain one of the keywords during the selected period.}
+            Then, we create a directed and weighted network where each node is one user of our final data set and each edge is a retweet, going from $A$ to $B$ and weighted by the number of times that $A$ retweeted $B$.\footnote{For this, we first use the plugging \texttt{twarc}-network to obtain a data frame containing: user $A$ that sent the retweet, user $B$ that received the retweet and the total number of retweets that $A$ gave to $B$ in the corpus. Looping through this information, we construct a  \texttt{DiGraph} object from the \texttt{NetworkX} package.}
+            
+%            \newline\indent
+           %\textbf{Required Manual Input}: Not required
+
+%            \newline\indent
+%            \textbf{Output}: Retweets network (DiGraph format) of the users in the topic of interest.
+            
+            \subsubsection{Updating the Corpus}
+            %\paragraph{Updating the Data}
+            
+            The methodology also includes scripts to update the information. %After choosing a topic and run for the first time the scripts to collect the data, you may need to update the data including new dates 
+            (for instance, it is possible to update the information weekly, using the same keywords).
+            The scripts repeat Steps 2, 3, 4 and 5 for the new dates, repeat Step 7 to politically label new users and Step 8 to add nodes and links with the updated list of users. 
+            The final output is the data set with tweets, the data set of labels and the updated network.
+            
+            %\newline\indent
+            %\textbf{Required Manual Input}: Range of dates to update the information.
+
+            %\newline\indent
+            %\textbf{Output}: Updated Data Frame of tweets containing the old information and adding the tweets from the update period. Updated retweets networks including new nodes and retweets that happen in the new period.
+
+            
+            
+            
+
+
+
+            %\subsection{Applied Methodology : Challenge/problem/task/question of Immigration in Chile }\label{sec_meth_chile_immig}
+            %\subsection{Application: Immigration in Chile }\label{sec_meth_chile_immig}
+            
+            %To test our developed data construction methodology, we apply it on a specific issue characterized by the following features:
+            
+            %    \begin{itemize}
+            %        \item 
+            %        Country: Chile
+                    
+            %        \item 
+            %        Topic: Immigration
+                    
+            %        \item
+            %        Time frame: November 1\textsuperscript{st}, 2020 to April 11\textsuperscript{th}, 2022
+            %    \end{itemize}
+                
+            %    The time frame is chosen to include periods before and after the last presidential election held on December 19\textsuperscript{th}, 2021, and three larger local events regarding immigration: $(i)$ A mass deportation of immigrants on February 10\textsuperscript{th}, 2021, $(ii)$ Violent protests in Northern border cities on September 26\textsuperscript{th}, 2021 and $(iii)$ on January 29\textsuperscript{th}, 2022.
+                
+            
+            
+            %A detailed description of how we applied our methodology to the particular topic of immigration in Chile can be found in Appendix \ref{app_sec_meth}.
+            %\textcolor{red}{\bf Here goes a \underline{very brief} description/summary of what is in the Appendix}
+           
+           %\newpage
+        \begin{landscape}
+            \begin{table}[!htb]
+                \footnotesize
+                \centering
+                \subfile{tabs/methodology_overview}
+                \caption{Corpus Construction Methodology Overview}
+                \floatfoot{\it Notes: Notebooks can be found in our GitHub repository under the URL: \url{https://github.com/BSE-DSDM-2022/ChileGov}.  \\ Source: Authors' own construction.}
+                \label{tab_methodology_overview}
+            \end{table}
+        \end{landscape}
+        %\newpage

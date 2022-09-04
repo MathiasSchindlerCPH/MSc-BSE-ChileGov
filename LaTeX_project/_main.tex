@@ -1,0 +1,155 @@
+%%%%%%%%%%%%%%%%%%%%%%%PREAMBLE%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumerate}
+\usepackage[margin=3 cm]{geometry}
+\usepackage[colorlinks]{hyperref}
+\usepackage{bm} %bold math symbols
+%\usepackage[longnamesfirst]{natbib}
+\usepackage{natbib}
+    \bibliographystyle{ecta} %econometrica-style
+    \setcitestyle{authoryear-ibid, open={(},close={)}}
+    \hypersetup{colorlinks, citecolor=blue}
+\usepackage{subfiles}
+\usepackage{soul} 
+\usepackage{lipsum} 
+%\usepackage{float}
+%\usepackage{rotating}
+\usepackage[capposition=top]{floatrow}
+\usepackage{epigraph} 
+\usepackage{etoolbox}
+\usepackage{booktabs}
+\usepackage{enumitem}
+    \newlist{steps}{enumerate}{1}
+    \setlist[steps, 1]{label = Step \arabic*:}
+\usepackage[nottoc,notlof, notlot]{tocbibind}%<- adds references to toc, removes list of figs and tabs
+    \settocbibname{References} %<- 
+\usepackage[section]{placeins} %<- prevents placing floats (figs and tables) before a section
+\usepackage{multicol}
+\usepackage{longtable}
+%\usepackage{fourier} 
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{afterpage}
+
+\renewcommand\theadalign{bc}
+%\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+    %EPIGRAPH - Inspirational quote in beginning:
+    \setlength{\epigraphwidth}{0.925\textwidth}
+    \setlength\epigraphrule{0pt}
+    
+    %ETOOLBOX:
+    \makeatletter
+    \patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+    \makeatother
+
+\linespread{1.20} %<- larger line spacing for better readability
+
+
+%%%%%%%%%%%%%%%%%%%%%%% CUSTOM COMMANDS %%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\V}{\mathbb{V}}
+%\newcommand{\eps}{\mathbb{\epsilon}}
+%\newcommand{\betahat}{\hat{\beta}}
+%\DeclareMathOperator*{\plim}{plim}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% TITLE %%%%%%%%%%%%%%%%%%%%%%%%
+%\title{\Huge Twitter Corpus Construction and Political Discourse Analysis in Chile\footnote{We thank Jesus  Cerquides as well as Professor Hannes Mueller for supervision and suggestions. We thank Claudio from the Chilean government for making clear what they need. We thank Elliot Motte for excellent technical assistantship. All our codes are available at our GitHub repository.} \\ \LARGE Final Master Thesis}
+
+%\title{\Huge Online Polarization in Developing Countries\footnote{We thank Jesus  Cerquides (IIIA-CSIC) as well as Professor Hannes Mueller (IAE-CSIC) for supervision and suggestions. We also thank Claudio Villegas Oliva from the Chilean Communication Office for giving us our thesis challenge and providing regular feedback. Finally, we thank PhD-students Elliot Motte (Universitat Pompeu Fabra) for excellent technical assistantship. All our codes are available at our GitHub repository: \url{https://github.com/BSE-DSDM-2022/ChileGov}. Any potential errors that remain are our own.} \\ \LARGE Final Master Thesis}
+
+%\title{\Huge Twitter Corpus Construction and Political Discourse Analysis in a Developing Country\footnote{We thank tenured researchers Jesus Cerquides (IIIA-CSIC) and Hannes Mueller (IAE-CSIC and BSE) for supervision and suggestions. We also thank Claudio Villegas Oliva from the Chilean Communication Office for giving us our thesis challenge and providing regular feedback. Finally, we thank PhD-students Elliot Motte (Universitat Pompeu Fabra) and Luis Ignacio Menéndez García (Universitat Autònoma de Barcelona) for excellent technical assistantship. All our codes are available at our GitHub repository: \url{https://github.com/BSE-DSDM-2022/ChileGov}. Any potential errors that remain are our own.} \\ \LARGE Final Master Thesis}
+
+%\title{\Huge Twitter Corpus Construction and Discourse Analysis about Immigration in Chile\footnote{We thank tenured researchers Jesus Cerquides (IIIA-CSIC) and Hannes Mueller (IAE-CSIC and BSE) for supervision and suggestions. We also thank Claudio Villegas Oliva from the Chilean Communication Office for giving us our thesis challenge and providing regular feedback. Finally, we thank PhD-students Elliot Motte (Universitat Pompeu Fabra) and Luis I. Menéndez García (Universitat Autònoma de Barcelona) for excellent technical assistantship. All our codes are available at our GitHub repository: \url{https://github.com/BSE-DSDM-2022/ChileGov}. Any potential errors that remain are our own.}} %\\ \LARGE Final Master Thesis}
+
+\title{\Huge Corpus Construction and Social Media Analysis about Immigration in Chile\footnote{We thank tenured researchers Jesus Cerquides (IIIA-CSIC) and Hannes Mueller (IAE-CSIC and BSE) for supervision and suggestions. We also thank Claudio Villegas Oliva from the Chilean Communication Office for giving us our thesis challenge and providing regular feedback. Finally, we thank PhD-students Elliot Motte (Universitat Pompeu Fabra) and Luis I. Menéndez García (Universitat Autònoma de Barcelona) for excellent technical assistantship. All our codes are available at our GitHub repository: \url{https://github.com/BSE-DSDM-2022/ChileGov}. Any potential errors that remain are our own.}} %\\ \LARGE Final Master Thesis}
+
+
+
+\author{\Large Andrés Couble\footnote{Barcelona School of Economics; email: \href{mailto:andres.couble@bse.eu}{andres.couble@bse.eu}.} \and \Large Mathias Schindler\footnote{Barcelona School of Economics; email: \href{mailto:mathias.schindler@bse.eu}{mathias.schindler@bse.eu}.} \and \Large Kalliope Stassinos\footnote{Barcelona School of Economics; email: \href{mailto:kalliope.stassinos@bse.eu}{kalliope.stassinos@bse.eu}.}}
+%\vspace{0.5em} \\ \large Barcelona School of Economics} %\\ \large Data Science for Decision Making, Class of '22} 
+
+\date{\vspace{1em} \Large Submitted: June 28, 2022}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% MAKE DOCUMENT %%%%%%%%%%%%%%%
+    \begin{document}
+    %% 0. Cover Page
+    \subfile{!_cover_page}
+    \thispagestyle{empty} %<- no page number
+    \newpage
+    
+    \maketitle
+    \thispagestyle{empty} %<- no page number
+    \hrule
+        \vspace{1cm}
+    \subfile{0_abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% OVERVIEW OF CONTENTS %%%%%%%%%%%%%%%
+\newpage
+\tableofcontents
+\thispagestyle{empty} %<- no page number
+
+\newpage
+\listoffigures
+\listoftables
+\thispagestyle{empty} %<- no page number
+
+
+%%%%%%%%%%%%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%%%%
+\newpage
+
+
+%\subfile{0_cco_summary}
+\subfile{1}
+\subfile{2}
+%\subfile{3}
+%\subfile{4}
+\subfile{5}
+\subfile{6}
+\subfile{7.0}
+\subfile{7.1}
+\subfile{7.2}
+\subfile{7.3}
+\subfile{7.4}
+\subfile{8.0}
+%\subfile{8.1}
+\subfile{8.2}
+%\subfile{8.3}
+\subfile{8.4}
+\subfile{9}
+
+
+%% 6. References
+\subfile{99_refs}
+
+
+%% A. Appendices
+\subfile{a_appdcs}
+\subfile{b_appdcs}
+\subfile{c_appdcs}
+\subfile{d_appdcs}
+
+
+
+
+
+
+
+
+
+\end{document}

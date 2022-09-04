@@ -1,0 +1,83 @@
+\subsection{Analysis Tools}\label{sec_tools}
+    In order to ease the exploratory process of analyzing the resulting corpus from our methodology, we have extended the challenge from the CCO and built various analysis tools for quantitative descriptive research. We have built a custom Python library named \texttt{TextAnLib} and an interactive dashboard.
+    
+    \subsubsection{\texttt{TextAnLib} Python Package}\label{sec_tool_pack}
+        We built a Python library which is tailored to analyzing the data in the resulting corpora from the methodology. The main functions of the library are two-fold:
+        
+        \begin{itemize}
+            \item 
+            Filtering: Using the functions, the data can be easily split by features such as time periods, political affiliation, specific hashtags, verified accounts among others.
+            
+            %\begin{itemize}
+            %    \item
+            %    Time Periods: Filter tweets by range of two dates
+                
+            %    \item 
+            %    Authors: Filter tweets from specific Twitter users
+                
+            %    \item 
+            %    Words: Filter tweets that contain specific words
+                
+            %    \item 
+            %    Hashtags: Filter tweets that contain specific hashtags
+                
+            %    \item 
+            %    Metrics: Tweets above a specified threshold of one of the following metrics: $(i)$ Likes, $(ii)$ Retweets, $(iii)$ Quotes, $(iv)$ Replies. 
+                
+            %    \item 
+            %    Location: Filter tweets by authors who's self-written location matches specified terms
+                
+            %    \item
+            %    Political Affiliation: Filter tweets by authors who are labeled either left-leaning, right-leaning or unlabeled as specified in Step 7 in Section \ref{sec_meth_gene}
+            %\end{itemize}
+            
+            \item 
+            Visualizing: Data visualization functions such as word clouds of top words, bar plots of top hashtags, comparison of use of words between left- and right-leaning users among others.
+            
+            %\begin{itemize}
+            %    \item
+            %    Tweet count: Number of daily tweets as a line plot
+                
+            %    \item
+            %    Top words: Either as a $(i)$ printed text or $(ii)$ bar plot. Number of words displayed can be user-specified
+                
+            %    \item
+            %    Top authors: Either as a $(i)$ printed text or $(ii)$ bar plot. Number of authors displayed can be user-specified
+                
+            %    \item
+            %    Top hashtags: Either as a $(i)$ printed text or $(ii)$ bar plot. Number of hashtags displayed can be user-specified
+                
+            %    \item 
+            %    Word clouds of tweets 
+                
+            %    \item
+            %    Metrics: Daily count as a line plot of one of the following metrics: $(i)$ Likes, $(ii)$ Retweets, $(iii)$ Quotes, $(iv)$ Replies
+                
+            %\end{itemize}
+        \end{itemize}
+        
+        \noindent See Appendix \ref{appsec_txtanlib_doc} for an extensive documentation of each of the functions in the \texttt{TextAnLib} library.
+    
+    
+    \subsubsection{Interactive Dashboard}\label{sec_tool_dash}
+        The Python packages \texttt{Plotly} and \texttt{Dash} allow programmers to build user-friendly interactive dashboards. Given the coding complexity of building such dashboards, our product should be viewed as a first prototype and proof-of-concept.
+        
+            \newline\indent
+        One advantage of interactive dashboards is that it allows quick and easy data visualization, and hereby extends the user base not just to data scientists and statisticians but also to more non-technical staff who might not be familiar with coding.\footnote{Hence, providing a custom Python library might not be useful for them as the cost of learning might be too high for non-technical practitioners.} E.g. we imagine communication graduates not to be very familiar with coding but to still be interested in tracking Twitter conversations on a daily basis. An interactive dashboard is by no means a novel invention, but we still believe it improves our final product for the CCO.
+        
+            \newline\indent
+        Figure \ref{fig_dash_screen} shows a static screenshot for our first prototype of the dashboard.\footnote{We would have liked to upload our dashboard to a webpage, to ease demonstration purposes. This is quite easy with the \texttt{shiny}-package for \texttt{R}, but not so straightforward with \texttt{Plotly} and \texttt{Dash} and is outside of the scope of this thesis. The reason for using \texttt{Plotly} and \texttt{Dash} is that these are Python-based, i.e. in the same programming language as our \texttt{TextAnLib}-package.} The dashboard makes use of the functions from our custom \texttt{TextAnLib}-package from Section \ref{sec_tool_pack}. As can be seen from the figure, the dashboard allows to visualize:
+            \begin{itemize}
+                \item 
+                Daily tweet counts
+                
+                \item 
+                Top hashtags
+                
+                \item 
+                Top authors
+                
+                \item 
+                Top words
+            \end{itemize}
+        When the users clicks and selects the desired metric and time frame, the app executes the code in the background and updates the UI in real-time. With more time on our hands we imagine we could build a significantly more complex app, such that it could show much more information. We believe this app to be a very useful UI for non-technical users. As mentioned, our constructed dashboard is only a proof-of-concept. Section \ref{sec_disc_improv} addresses thoughts on how it could be improved further and thereby deliver more value for the CCO.

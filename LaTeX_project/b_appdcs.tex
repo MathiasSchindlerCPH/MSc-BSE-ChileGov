@@ -1,0 +1,760 @@
+%\newpage
+%\appendix
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+    %\renewcommand\thefigure{\thesection.\arabic{figure}} %Number figure B1, B2, etc.
+    \renewcommand{\thetable}{A.\arabic{table}} %Number tables B1, B2, etc.
+    %\setcounter{figure}{0} %Start numbering from 1   
+    %\setcounter{table}{0}
+
+%\section{Long Appendices}
+
+    %\subsection{Metadata Provided by \texttt{twarc2}}\label{appsec_twarc_meta}
+    %    For more detailed explanations of each of the features returned by \texttt{twarc2}, we refer to Twitter's official developer support webpage at the following URL: \url{https://developer.twitter.com/en/docs/api-reference-index}.
+            % \begin{multicols}{2}
+            %     \begin{itemize}
+            %         \item 
+            %         \texttt{id}
+                    
+            %         \item
+            %         \texttt{conversation\_id}
+                     
+            %         \item
+            %          \texttt{referenced\_tweets.replied\_to.id}
+                     
+            %          \item
+            %          \texttt{referenced\_tweets.retweeted.id}
+                     
+            %          \item
+            %          \texttt{referenced\_tweets.quoted.id}
+                     
+            %          \item
+            %          \texttt{author\_id}
+                     
+            %          \item
+            %          \texttt{in\_reply\_to\_user\_id}
+                     
+            %          \item
+            %          \texttt{retweeted\_user\_id}
+                     
+            %          \item
+            %          \texttt{quoted\_user\_id}
+                     
+            %          \item
+            %          \texttt{created\_at}
+                     
+            %          \item
+            %          \texttt{text}
+                     
+            %          \item
+            %          \texttt{lang}
+                     
+            %          \item
+            %          \texttt{source}
+                     
+            %          \item
+            %          \texttt{public\_metrics.like\_count}
+                     
+            %          \item
+            %          \texttt{public\_metrics.quote\_count}
+                     
+            %          \item
+            %          \texttt{public\_metrics.reply\_count}
+                     
+            %          \item
+            %          \texttt{public\_metrics.retweet\_count}
+                     
+            %          \item
+            %          \texttt{reply\_settings}
+                     
+            %          \item
+            %          \texttt{possibly\_sensitive}
+                     
+            %          \item
+            %          \texttt{withheld.scope}
+                     
+            %          \item
+            %          \texttt{withheld.copyright}
+                     
+            %          \item
+            %          \texttt{withheld.country\_codes}
+                     
+            %          \item
+            %          \texttt{entities.annotations}
+                     
+            %          \item
+            %          \texttt{entities.cashtags}
+                     
+            %          \item
+            %          \texttt{entities.hashtags}
+                     
+            %          \item
+            %          \texttt{entities.mentions}
+                     
+            %          \item
+            %          \texttt{entities.urls}
+                     
+            %          \item
+            %          \texttt{context\_annotations}
+                     
+            %          \item
+            %          \texttt{attachments.media}
+                     
+            %          \item
+            %          \texttt{attachments.media\_keys}
+                     
+            %          \item
+            %          \texttt{attachments.poll.duration\_minutes}
+                     
+            %          \item
+            %          \texttt{attachments.poll.end\_datetime}
+                     
+            %          \item
+            %          \texttt{attachments.poll.id}
+                     
+            %          \item
+            %          \texttt{attachments.poll.options}
+                     
+            %          \item
+            %          \texttt{attachments.poll.voting\_status}
+                     
+            %          \item
+            %          \texttt{attachments.poll\_ids}
+                     
+            %          \item
+            %          \texttt{author.id}
+                     
+            %          \item
+            %          \texttt{author.created\_at}
+                     
+            %          \item
+            %          \texttt{author.username}
+                     
+            %          \item
+            %          \texttt{author.name}
+                     
+            %          \item
+            %          \texttt{author.description}
+                     
+            %          \item
+            %          \texttt{author.entities.description.cashtags}
+                     
+            %          \item
+            %          \texttt{author.entities.description.hashtags}
+                     
+            %          \item
+            %          \texttt{author.entities.description.mentions}
+                     
+            %          \item
+            %          \texttt{author.entities.description.urls}
+                     
+            %          \item
+            %          \texttt{author.entities.url.urls}
+                     
+            %          \item
+            %          \texttt{author.location}
+                     
+            %          \item
+            %          \texttt{author.pinned\_tweet\_id}
+                     
+            %          \item
+            %          \texttt{author.profile\_image\_url}
+                     
+            %          \item
+            %          \texttt{author.protected}
+                     
+            %          \item
+            %          \texttt{author.public\_metrics.followers\_count}
+                     
+            %          \item
+            %          \texttt{author.public\_metrics.following\_count}
+                     
+            %          \item
+            %          \texttt{author.public\_metrics.listed\_count}
+                     
+            %          \item
+            %          \texttt{author.public\_metrics.tweet\_count}
+                     
+            %          \item
+            %          \texttt{author.url}
+                     
+            %          \item
+            %          \texttt{author.verified}
+                     
+            %          \item
+            %          \texttt{author.withheld.scope}
+                     
+            %          \item
+            %          \texttt{author.withheld.copyright}
+                     
+            %          \item
+            %          \texttt{author.withheld.country\_codes}
+                     
+            %          \item
+            %          \texttt{geo.coordinates.coordinates}
+                     
+            %          \item
+            %          \texttt{geo.coordinates.type}
+                     
+            %          \item
+            %          \texttt{geo.country}
+                     
+            %          \item
+            %          \texttt{geo.country\_code}
+                     
+            %          \item
+            %          \texttt{geo.full\_name}
+                     
+            %          \item
+            %          \texttt{geo.geo.bbox}
+                     
+            %          \item
+            %          \texttt{geo.geo.type}
+                     
+            %          \item
+            %          \texttt{geo.id}
+                     
+            %          \item
+            %          \texttt{geo.name}
+                     
+            %          \item
+            %          \texttt{geo.place\_id}
+                     
+            %          \item
+            %          \texttt{geo.place\_type}
+                     
+            %          \item
+            %          \texttt{\_\_twarc.retrieved\_at}
+                     
+            %          \item
+            %          \texttt{\_\_twarc.url}
+                     
+            %          \item
+            %          \texttt{\_\_twarc.version}
+            %     \end{itemize}
+            % \end{multicols}
+            
+            
+            
+    \newpage        
+    \subsection{Tables}
+        \begin{table}[H]
+            \footnotesize
+            \centering
+            
+            \subfile{tabs/hashtags_no_users}
+            
+            \caption{Top 15 Hashtags Count and Number of Users Using Each Hashtag}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+           Data Source: Retrieved from Twitter API, spanning the time frame Nov 1\textsuperscript{st}, 2020 -- April 11\textsuperscript{th}, 2022. Data is cleaned by our proposed methodology, such that the corpus includes tweets with topic-related keywords (semantic link + country contextual) and are tweeted by Twitter users in Chile or Chilean nationals and contains tweets that mainly regard the topic of immigration.}
+           
+           
+            
+            \label{apptab_total_hashtags}
+    \end{table}
+    
+    \begin{table}[H]
+            \footnotesize
+            \centering
+            
+            \subfile{tabs/bigram_no_users}
+            
+            \caption{Top 15 Bigram Count and Number of Users Using Each Bigram}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+           Data Source: Retrieved from Twitter API, spanning the time frame Nov 1\textsuperscript{st}, 2020 -- April 11\textsuperscript{th}, 2022. Data is cleaned by our proposed methodology, such that the corpus includes tweets with topic-related keywords (semantic link + country contextual) and are tweeted by Twitter users in Chile or Chilean nationals and contains tweets that mainly regard the topic of immigration.}
+
+            \label{apptab_total_bigrams}
+        \end{table}
+        
+        \begin{table}[H]
+            \footnotesize
+            \centering
+            
+            \subfile{tabs/bigrams_nousers_left_protest}
+            
+            \caption{Top 15 Bigram Count and Number of Users Using Each Bigram; Left-Leaning Users during the Protest}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+          Data Source: Retrieved from Twitter API, spanning the time frame Nov 1\textsuperscript{st}, 2020 -- April 11\textsuperscript{th}, 2022, filtered to consider only left-wing users during the protest.}
+           
+           
+            
+            \label{apptab_left_bigrams_protest}
+        \end{table}
+        
+        \begin{table}[H]
+            \footnotesize
+            \centering
+            
+            \subfile{tabs/bigrams_nousers_right_protest}
+            
+            \caption{Top 15 Bigram Count and Number of Users Using Each Bigram - Right-Leaning Users during the Protest}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+           Data Source: Retrieved from Twitter API, spanning the time frame Nov 1\textsuperscript{st}, 2020 -- April 11\textsuperscript{th}, 2022, filtered to consider only right-wing users during the protest.}
+           
+           
+            
+            \label{apptab_right_bigrams_protest}
+        \end{table}
+        
+        \begin{table}[H]
+            \footnotesize
+           \centering
+            
+            \subfile{tabs/bigrams_nousers_unlabeled_protest}
+            
+            \caption{Top 15 Bigram Count and Number of Users Using Each Bigram - Unlabeled Users during the Protest}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+           Data Source: Retrieved from Twitter API, spanning the time frame Nov 1\textsuperscript{st}, 2020 -- April 11\textsuperscript{th}, 2022, filtered to consider only unlabeled users during the protest.}
+           
+            \label{apptab_unlabeled_bigrams_protest}
+       \end{table}
+        
+        \begin{table}[H]
+            \footnotesize
+            \centering
+            
+            \subfile{tabs/hashtags_nousers_left_protest}
+            
+           \caption{Top 15 Hashtags Count and Number of Users Using Each Hashtag - Left-Leaning Users during the Protest}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+           Data Source: Retrieved from Twitter API, spanning the time frame Nov 1\textsuperscript{st}, 2020 -- April 11\textsuperscript{th}, 2022, filtered to consider only left-wing users during the protest.}
+           
+           \label{apptab_left_hashtags_protest}
+            
+             \end{table}
+        
+        \begin{table}[H]
+            \footnotesize
+            \centering
+            
+            \subfile{tabs/hashtags_nousers_right_protest}
+            
+            \caption{Top 15 Hashtags Count and Number of Users Using Each Hashtags - Right-Leaning Users during the Protest}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+           Data Source: Retrieved from Twitter API, spanning the time frame Nov 1\textsuperscript{st}, 2020 -- April 11\textsuperscript{th}, 2022, filtered to consider only right-wing users during the protest.}
+           
+           
+            
+            \label{apptab_right_hashtags_protest}
+        \end{table}
+        
+        \begin{table}[H]
+            \footnotesize
+            \centering
+            
+            \subfile{tabs/hashtags_nousers_unlabeled_protest}
+            
+            \caption{Top 15 Hashtags Count and Number of Users Using Each Hashtags - Unlabeled Users during the Protest}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+           Data Source: Retrieved from Twitter API, spanning the time frame Nov 1\textsuperscript{st}, 2020 -- April 11\textsuperscript{th}, 2022, filtered to consider only unlabeled users during the protest.}
+           
+            \label{apptab_unlabeled_hashtags_protest}
+        \end{table}
+            
+            
+            
+        \begin{table}[H]
+                \footnotesize
+                \centering
+                
+                \subfile{tabs/net_5_eigenvector}
+                
+                \caption{Five Most Influential Users by Eigenvector Centrality}
+                
+                \floatfoot{\it 
+                %Notes:  \\ 
+               Data Source: Retweets network retrieved from Twitter API and \texttt{twarc2}'s network plug-in. Result of the step 8 of the applied methodology as described in Section \ref{sec_meth_gene} and Appendix \ref{app_sec_meth}.}
+                
+                \label{apptab_net_5_eigenvector}
+            \end{table}
+            
+            
+        \begin{table}[!htb]
+            \footnotesize
+            \centering
+            
+            \subfile{tabs/net_degree_polaff}
+            
+            \caption{Degree Centrality by Political Affiliations}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+           Data Source: Retweets network retrieved from Twitter API and \texttt{twarc2}'s network plug-in. Result of Step 8 of the applied methodology as described in Section \ref{sec_meth_gene} and Appendix \ref{app_sec_meth}.}
+            
+            \label{apptab_net_degree_polaff}
+        \end{table}
+        
+        \begin{table}[!htb]
+            \footnotesize
+            \centering
+            
+            \subfile{tabs/net_eigen_polaff}
+            
+            \caption{Eigenvector Centrality by Political Affiliations}
+            
+            \floatfoot{\it 
+            %Notes:  \\ 
+           Data Source: Retweets network retrieved from Twitter API and \texttt{twarc2}'s network plug-in. Result of Step 8 of the applied methodology as described in Section \ref{sec_meth_gene} and Appendix \ref{app_sec_meth}.}
+            
+            \label{apptab_net_eigen_polaff}
+        \end{table}
+            
+            
+    
+            \begin{longtable}{l|l}
+            \caption{Unigram Chilean Cities, Excluded and Included in Step 3 of Applied Methodology} \label{app:tab_unis}
+            
+            \hline\hline \multicolumn{1}{l|}{Excluded} & \multicolumn{1}{l}{Included} \\ \hline 
+            \endfirsthead
+            
+            \multicolumn{2}{c}%
+            {{\tablename\ \thetable{} -- Continued From Previous Page}} \\
+            \hline \multicolumn{1}{l|}{Excluded} & \multicolumn{1}{l}{Included}  \\ \hline 
+            \endhead
+            
+            \hline \multicolumn{2}{r}{{\it Continued On Next Page...}} 
+            \endfoot
+            
+            \hline \hline
+            \endlastfoot
+            
+            %\hline\hline
+            %Excluded & Included \\ \hline
+             aguila   &  ancud   \\  
+             aguirre   &  andacollo   \\  
+             agustin   &  angol   \\  
+             alamos   &  antofagasta   \\  
+             alegre   &  araucania   \\  
+             alemana   &  arauco   \\  
+             algarrobo   &  arica   \\  
+             almagro   &  atacama   \\  
+             almonte   &  aysen   \\  
+             alto   &  barnechea   \\  
+             amarilla   &  biobio   \\  
+             andes   &  buin   \\  
+             angeles   &  calama   \\  
+             antonio   &  calbuco   \\  
+             arenas   &  calera   \\  
+             bajos   &  canete   \\  
+             barbara   &  carahue   \\  
+             bernardo   &  catemu   \\  
+             bosque   &  cauquenes   \\  
+             bueno   &  cerrillos   \\  
+             bulnes   &  chanaral   \\  
+             cabildo   &  chiguayante   \\  
+             cabras   &  chillan   \\  
+             cabrero   &  chimbarongo   \\  
+             caldera   &  chuquicamata   \\  
+             calle   &  codegua   \\  
+             carlos   &  coelemu   \\  
+             cartagena   &  coihueco   \\  
+             casablanca   &  collipulli   \\  
+             casas   &  combarbala   \\  
+             castro   &  conchali   \\  
+             central   &  concon   \\  
+             cerda   &  copiapo   \\  
+             cerro   &  coquimbo   \\  
+             cisterna   &  coyhaique   \\  
+             clemente   &  cunco   \\  
+             colina   &  curacautin   \\  
+             concepcion   &  curacavi   \\  
+             condes   &  curanilahue   \\  
+             constitucion   &  curico   \\  
+             coronel   &  donihue   \\  
+             cruz   &  frutillar   \\  
+             diego   &  futrono   \\  
+             domingo   &  graneros   \\  
+             elena   &  gultro   \\  
+             espejo   &  hijuelas   \\  
+             estacion   &  hualane   \\  
+             esteban   &  hualpen   \\  
+             felipe   &  hualqui   \\  
+             fernando   &  huasco   \\  
+             florida   &  huechuraba   \\  
+             freire   &  huepil   \\  
+             fresia   &  illapel   \\  
+             gorbea   &  iquique   \\  
+             granja   &  lanco   \\  
+             hospicio   &  lebu   \\  
+             hospital   &  ligua   \\  
+             hurtado   &  limache   \\  
+             imperial   &  llanquihue   \\  
+             independencia   &  llay-llay   \\  
+             isla   &  loncoche   \\  
+             islita   &  longavi   \\  
+             jahuel   &  machali   \\  
+             javier   &  macul   \\  
+             joaquin   &  maipo   \\  
+             jose   &  maipu   \\  
+             juana   &  mariquina   \\  
+             labranza   &  maule   \\  
+             lagos   &  melipilla   \\  
+             laja   &  muermos   \\  
+             lampa   &  mulchen   \\  
+             larga   &  nancagua   \\  
+             lautaro   &  nunoa   \\  
+             linares   &    o'higgins   \\  
+             lota   &  olmue   \\  
+             magallanes   &  ovalle   \\  
+             mar   &  paillaco   \\  
+             maria   &  paine   \\  
+             mejillones   &  panguipulli   \\  
+             melon   &  parinacota   \\  
+             metropolitan   &  penalolen   \\  
+             miguel   &  pichilemu   \\  
+             miranda   &  pintana   \\  
+             molina   &  pirque   \\  
+             monte   &  pitrufquen   \\  
+             montt   &  placilla   \\  
+             mostazal   &  pucon   \\  
+             nacimiento   &  pudahuel   \\  
+             natales   &  puren   \\  
+             navia   &  purranque   \\  
+             negro   &  putaendo   \\  
+             nogales   &  quellon   \\  
+             normal   &  quilicura   \\  
+             nueva   &  quillon   \\  
+             osorno   &  quillota   \\  
+             padre   &  quilpue   \\  
+             palmilla   &  quirihue   \\  
+             palqui   &  quisco   \\  
+             parral   &  rancagua   \\  
+             patria   &  renaico   \\  
+             paz   &  renca   \\  
+             pedro   &  requinoa   \\  
+             penaflor   &  santiago   \\  
+             penco   &  talagante   \\  
+             penuelas   &  talca   \\  
+             peumo   &  talcahuano   \\  
+             pozo   &  taltal   \\  
+             prado   &  tarapaca   \\  
+             providencia   &  temuco   \\  
+             puente   &  tilcoco   \\  
+             puerto   &  tiltil   \\  
+             punta   &  tocopilla   \\  
+             quinta   &  traiguen   \\  
+             quintero   &  valdivia   \\  
+             ramon   &  vallenar   \\  
+             recoleta   &  valparaiso   \\  
+             reina   &  villarrica   \\  
+             rengo   &  vilos   \\  
+             rinconada   &  vitacura   \\  
+             rio   & yumbel \\  
+             rios   & ~ \\  
+             rosendo   & ~ \\  
+             salamanca   & ~ \\  
+             salvador   & ~ \\  
+             santa   & ~ \\  
+             santo   & ~ \\  
+             serena   & ~ \\  
+             tabo   & ~ \\  
+             tagua   & ~ \\  
+             teno   & ~ \\  
+             tierra   & ~ \\  
+             tome   & ~ \\  
+             union   & ~ \\  
+             varas   & ~ \\  
+             ventanas   & ~ \\  
+             vicente   & ~ \\  
+             victoria   & ~ \\  
+             vicuna   & ~ \\  
+             viejo   & ~ \\  
+             villa   & ~ \\  
+             vina   & ~ \\  
+             yungay   & ~ \\  
+            zaldivar & ~ 
+        \end{longtable}
+        {\it Source: Wikipedia entry on ''List of cities in Chile''. Retrieved on June 15, 2022, 19.41.}
+        
+        
+         \begin{longtable}{l|l}
+            \caption{$n$-Gram Chilean Cities, Excluded and Included in Step 3 of Applied Methodology} \label{app:tab_ngrams}
+            
+            \hline\hline \multicolumn{1}{l|}{Excluded} & \multicolumn{1}{l}{Included} \\ \hline 
+            \endfirsthead
+            
+            \multicolumn{2}{c}%
+            {{\tablename\ \thetable{} -- Continued From Previous Page}} \\
+            \hline \multicolumn{1}{l|}{Excluded} & \multicolumn{1}{l}{Included}  \\ \hline 
+            \endhead
+            
+            \hline \multicolumn{2}{r}{{\it Continued On Next Page...}} 
+            \endfoot
+            
+            \hline \hline
+            \endlastfoot
+            
+            %\hline\hline
+            %Excluded & Included \\ \hline
+                  algarrobo   &    alto hospicio   \\   
+                   bulnes   &    alto jahuel   \\   
+                   cabildo   &    ancud   \\   
+                   caldera   &    andacollo   \\   
+                   calle larga   &    angol   \\   
+                   cartagena   &    antofagasta   \\   
+                   casablanca   &    araucania   \\   
+                   castro   &    arauco   \\   
+                   colina   &    arica   \\   
+                   concepcion   &    arica and parinacota region   \\   
+                   constitucion   &    atacama   \\   
+                   coronel   &    aysen   \\   
+                   diego de almagro   &    bajos de san agustin   \\   
+                   el bosque   &    biobio   \\   
+                   el melon   &    buin   \\   
+                   el monte   &    cabrero   \\   
+                   el salvador   &    calama   \\   
+                   estacion central   &    calbuco   \\   
+                   freire   &    canete   \\   
+                   fresia   &    carahue   \\   
+                   gorbea   &    catemu   \\   
+                   graneros   &    cauquenes   \\   
+                   hospital   &    cerrillos   \\   
+                   independencia   &    cerro navia   \\   
+                   la calera   &    chanaral   \\   
+                   la cruz   &    chiguayante   \\   
+                   la florida   &    chillan   \\   
+                   la granja   &    chillan viejo   \\   
+                   la islita   &    chimbarongo   \\   
+                   la laja   &    chuquicamata   \\   
+                   la reina   &    codegua   \\   
+                   la serena   &    coelemu   \\   
+                   la union   &    coihueco   \\   
+                   labranza   &    collipulli   \\   
+                   lampa   &    combarbala   \\   
+                   las cabras   &    conchali   \\   
+                   las ventanas   &    concon   \\   
+                   lautaro   &    copiapo   \\   
+                   linares   &    coquimbo   \\   
+                   lo espejo   &    coyhaique   \\   
+                   los alamos   &    cunco   \\   
+                   los andes   &    curacautin   \\   
+                   los angeles   &    curacavi   \\   
+                   los lagos   &    curanilahue   \\   
+                   los rios   &    curico   \\   
+                   lota   &    donihue   \\   
+                   magallanes   &    el palqui   \\   
+                   maria elena   &    el quisco   \\   
+                   mejillones   &    el tabo   \\   
+                   molina   &    estacion zaldivar   \\   
+                   mostazal   &    frutillar   \\   
+                   nacimiento   &    futrono   \\   
+                   nogales   &    gultro   \\   
+                   osorno   &    hijuelas   \\   
+                   padre hurtado   &    hualane   \\   
+                   palmilla   &    hualpen   \\   
+                   pedro aguirre cerda   &    hualqui   \\   
+                   penaflor   &    huasco   \\   
+                   penco   &    huechuraba   \\   
+                   peumo   &    huepil   \\   
+                   providencia   &    illapel   \\   
+                   quintero   &    iquique   \\   
+                   recoleta   &    isla de maipo   \\   
+                   rengo   &    la cisterna   \\   
+                   rio bueno   &    la ligua   \\   
+                   rio negro   &    la pintana   \\   
+                   salamanca   &    lanco   \\   
+                   san antonio   &    las condes   \\   
+                   san bernardo   &    lebu   \\   
+                   san carlos   &    limache   \\   
+                   san clemente   &    llanquihue   \\   
+                   san esteban   &    llay-llay   \\   
+                   san felipe   &    lo barnechea   \\   
+                   san fernando   &    lo miranda   \\   
+                   san javier   &    lo prado   \\   
+                   san joaquin   &    loncoche   \\   
+                   san miguel   &    longavi   \\   
+                   san ramon   &    los muermos   \\   
+                   san rosendo   &    los vilos   \\   
+                   santa barbara   &    machali   \\   
+                   santa cruz   &    macul   \\   
+                   santa juana   &    maipu   \\   
+                   santa maria   &    mariquina   \\   
+                   santo domingo   &    maule   \\   
+                   teno   &    melipilla   \\   
+                   tome   &    monte aguila   \\   
+                   victoria   &    monte patria   \\   
+                   vicuna   &    mulchen   \\   
+                yungay &    nancagua   \\   
+                ~ &    nueva imperial   \\   
+                ~ &    nunoa   \\   
+                ~ &          o'higgins       \\   
+                ~ &    olmue   \\   
+                ~ &    ovalle   \\   
+                ~ &    padre las casas   \\   
+                ~ &    paillaco   \\   
+                ~ &    paine   \\   
+                ~ &    panguipulli   \\   
+                ~ &    parral   \\   
+                ~ &    penalolen   \\   
+                ~ &    pichilemu   \\   
+                ~ &    pirque   \\   
+                ~ &    pitrufquen   \\   
+                ~ &    placilla de penuelas   \\   
+                ~ &    pozo almonte   \\   
+                ~ &    pucon   \\   
+                ~ &    pudahuel   \\   
+                ~ &    puente alto   \\   
+                ~ &    puerto aysen   \\   
+                ~ &    puerto montt   \\   
+                ~ &    puerto natales   \\   
+                ~ &    puerto varas   \\   
+                ~ &    punta arenas   \\   
+                ~ &    puren   \\   
+                ~ &    purranque   \\   
+                ~ &    putaendo   \\   
+                ~ &    quellon   \\   
+                ~ &    quilicura   \\   
+                ~ &    quillon   \\   
+                ~ &    quillota   \\   
+                ~ &    quilpue   \\   
+                ~ &    quinta de tilcoco   \\   
+                ~ &    quinta normal   \\   
+                ~ &    quirihue   \\   
+                ~ &    rancagua   \\   
+                ~ &    renaico   \\   
+                ~ &    renca   \\   
+                ~ &    requinoa   \\   
+                ~ &    rinconada   \\   
+                ~ &    san jose de maipo   \\   
+                ~ &    san pedro de la paz   \\   
+                ~ &    san vicente de tagua tagua   \\   
+                ~ &    santiago   \\   
+                ~ &    santiago metropolitan   \\   
+                ~ &    santiago metropolitan region   \\   
+                ~ &    talagante   \\   
+                ~ &    talca   \\   
+                ~ &    talcahuano   \\   
+                ~ &    taltal   \\   
+                ~ &    tarapaca   \\   
+                ~ &    temuco   \\   
+                ~ &    tierra amarilla   \\   
+                ~ &    tiltil   \\   
+                ~ &    tocopilla   \\   
+                ~ &    traiguen   \\   
+                ~ &    valdivia   \\   
+                ~ &    vallenar   \\   
+                ~ &    valparaiso   \\   
+                ~ &    villa alegre   \\   
+                ~ &    villa alemana   \\   
+                ~ &    villarrica   \\   
+                ~ &    vina del mar   \\   
+                ~ & vitacura   \\   
+                ~ & yumbel 
+        \end{longtable}
+        {\it Source: Wikipedia entry on ''List of cities in Chile''. Retrieved on June 15, 2022, 19.41.}
+        

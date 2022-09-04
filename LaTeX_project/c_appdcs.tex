@@ -1,0 +1,174 @@
+\newpage
+\section{Documentation of \texttt{TextAnLib} Library}\label{appsec_txtanlib_doc}
+NB: See also \url{https://github.com/BSE-DSDM-2022/ChileGov/blob/master/methodology_blank/z_explore_data/TxtAnLib/README.md} for nicer formatting.
+
+\subsection{Functions to Filter Corpus}
+
+\textbf{f\_authors (DF: pd.DataFrame, authors\_list: list)}:
+Receive as input a list of authors and returns a data frame with the tweets from these authors.\\
+\textbf{Parameters:}\\
+DF: Data frame to filter; Type: Pandas Dataframe\\
+author\_list: list of authors usernames to select the tweets from these users; Type: List of strings.\\
+\textbf{Return}: DataFrame with the same columns that the input DF, but considering only the tweets written by authors in the input list.
+\newline 
+\newline
+\noindent \textbf{f\_dates(DF: pd.DataFrame, start\_time ="2020-10-31", end\_time = "2022-04-12")}:
+Receive as input a start time and end time and return the data frame only with the tweets tweeted between these two dates.\\
+\textbf{Parameters:}\\
+DF: Data frame to filter; Type: Pandas Dataframe\\
+start\_time: Initial date of the period to filter; Type: String in format YYYY-MM-DD; Default: "2020-10-31"\\
+end\_time: Final date of the period to filter; Type: String in format YYYY-MM-DD; Default: "2022-04-12"\\
+\textbf{Return}:DataFrame with the same columns that the input DF, but considering only the tweets written in the period between start\_time and end\_time.
+\newline 
+\newline
+\noindent\textbf{f\_words(DF: pd.DataFrame, list\_of\_words: list)}: Receive a list of words and return a data frame only with the tweets that contain one of these words\\
+\textbf{Parameters:}\\
+DF: Data frame to filter; Type: Pandas Dataframe\\
+list\_of\_words: list of words to select the tweets that contains one of these words; Type: List of strings\\
+\textbf{Return}: DataFrame with the same columns that the input DF, but considering only the tweets that contain at least one of the words in list\_of\_words.
+\newline 
+\newline
+\noindent\textbf{f\_hashtags(DF: pd.DataFrame, list\_of\_hashtags: list)}
+Receive a list of hashtags and return a data frame only with the tweets that contain one of these hashtags.\\
+\textbf{Parameters:}\\
+DF: Data frame to filter; Type: Pandas Dataframe\\
+list\_of\_hashtags list of authors words to select the tweets that contains one of these hashtags; Type: List of strings\\
+\textbf{Return}: DataFrame with the same columns that the input DF, but considering only the tweets that contain at least one of the hashtags in list\_of\_hashtags.
+\newline 
+\newline
+\noindent\textbf{f\_metrics(DF: pd.DataFrame, metric: str , threshold: int)}:
+Filter tweets with a minimum number of RT, likes, quotes or resplies.\\ 
+\textbf{Parameters:}\\
+DF: Data frame to filter; Type: Pandas Dataframe\\
+metric: Name of the metric that the user wants to use to filter. Options: "Likes", "Retweets", "Quotes" or "Replies"; Type: String\\
+threshold: Minimum number of the “metric” to filter tweets.\\
+\textbf{Return}: DataFrame with the same columns that the input DF, but considering only the tweets that have more than the threshold number of the selected metric.
+\newline 
+\newline
+\noindent\textbf{f\_location(DF: pd.DataFrame, list\_of\_locations: list)}
+Receive a list of words and return a data frame only with tweets from authors that have one of these words in the location.\\
+\textbf{Parameters:}\\
+DF: Data frame to filter; Type: Pandas Dataframe\\
+list\_of\_location: list of words to select the tweets from authors that contain at least one of these words in their location; Type: List of strings\\
+\textbf{Return}: DataFrame with the same columns that the input DF, but considering only the tweets written by authors that contain in their location at least one of the words of the list of locations.
+\newline 
+\newline
+\noindent\textbf{f\_affiliation(DF,Affiliation="Unlabeled")}:
+Receive an affiliation (Left, Right or Unlabeled) and return a DataFrame only with tweets from authors of this affiliation.\\
+\textbf{Parameters:}\\
+DF: Data frame to filter; Type: Pandas Dataframe\\
+Affiliation: Affiliation to filter. Options: “Left”, “Right” or “Unlabeled”. Default:“Unlabeled”;Type: String.\\
+\textbf{Return}: DataFrame with the same columns that the input DF, but considering only the tweets written by authors of the selected affiliation.
+\newline 
+\newline
+\noindent\textbf{f\_verified(DF)}
+Return a Dataframe with tweets written by verified accounts.\\
+\textbf{Parameters:}\\
+DF: Data frame to filter; Type: Pandas Dataframe\\
+\textbf{Return}: DataFrame with the same columns that the input DF, but considering only the tweets written by verified accounts.
+\newline 
+\newline
+\noindent\textbf{f\_minfollowers(DF,min\_followers=200)}
+Return a Dataframe with tweets written by accounts with a minimum number of followers.\\
+\textbf{Parameters:}\\
+DF: Data frame to filter; Type: Pandas Dataframe\\
+min\_followers: Minimum number of followers to filter the data frame. Default:200; Type:Int\\
+\textbf{Return}: DataFrame with the same columns that the input DF, but considering only the tweets written by accounts with more than min\_followers followers.
+
+\subsection{Functions for Visualization}
+\textbf{word\_cloud(DF: pd.DataFrame, number\_of\_words = 100)}: Plot a Word Cloud of the input data set cleaned text.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+number\_of\_words: Maximum number of words to display in the Word Cloud. Default: 100;Type: Int\\
+\textbf{Return}: None\\
+\textbf{Action}: Plot a Word Cloud of cleaned text from the DF.\\
+\newline
+\newline
+\noindent\textbf{top\_words(DF: pd.DataFrame, number\_of\_words = 100)}: Print the n most used words  in the Data Frame and the number of occurrences.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+number\_of\_words: Number of most used words to display. Default: 100;Type: Int\\
+\textbf{Return}: List of n tuples with the most used words and the number of occurrences.\\
+\textbf{Action}: Print the n most used words and the number of occurrences.
+\newline
+\newline
+\noindent\textbf{top\_authors(DF: pd.DataFrame, number\_of\_authors = 100)}: Print n authors username that tweets more often in the DF.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+number\_of\_authors: Number of most common authors to display. Default: 100;Type: Int\\
+\textbf{Return}: List of n tuples with the n authors that tweet most often in DF and the number of tweets that each one has.\\
+\textbf{Action}: Print the n authors that tweeted more and the number of tweets for each one.
+\newline
+\newline
+\noindent\textbf{top\_hashtags(DF: pd.DataFrame,number\_print=100,number\_plot=20, title = ' ')}: Print the n\_print most used hashtags in the Data Frame and the number of occurrences. Also plot a bar plot with the n\_plot top hashtags.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+number\_print: Number of most used hashtags to print. Default:100;Type:int.
+number\_plot: Number of most used hashtags to include in the bar plot. Default:20;Type:int.
+title: Title for the bar plot. Default:” “; Type: String.\\
+\textbf{Return}: List of n\_print tuples with the n most used hashtags and the number of occurrences.\\
+\textbf{Action}: Print the n\_print most used hashtags in the Data Frame and the number of occurrences. Also display a bar plot with the n\_plot number of most used hashtags. Each bar represent the number of occurrences.\\
+\newline
+\newline
+\noindent\textbf{top\_bigrams(DF:pd.DataFrame,number\_of\_bigrams=100,number\_plot=20, title = "", split\_bi = False)}: Print the n\_print most used bigrams in the Data Frame and the number of occurrences. Also plot a bar plot with the n\_plot top bigrams.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+number\_of\_bigrams: Number of most used bigrams to print. Default:100;Type:int.
+number\_plot: Number of most used bigrams to include in the bar plot. Default:20;Type:int.
+title: Title for the bar plot. Default:”“; Type: String.\\
+Split\_bi: Boolean to indicate if in the labels of the bar plot the bigrams are presented in two lines (True) or in one line (False). Default: False; Type: Boolean\\
+\textbf{Return}: List of n\_print tuples with the n most used bigrams and the number of occurrences.\\
+\textbf{Action}: Print the n\_print most used bigrams in the Data Frame and the number of occurrences. Also display a bar plot with the n\_plot number of most used bigrams. Each bar represent the number of occurrences.\\
+\newline
+\newline
+\noindent\textbf{pday\_tweets(DF: pd.DataFrame)}: Print a time series indicating the number of tweets per day.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+\textbf{Return}: None\\
+\textbf{Action}: Display time series plot indicating the number of tweets per day.
+\newline
+\newline
+\noindent\textbf{pday\_metrics(DF: pd.DataFrame, RT = True, Likes = True, Quotes = True, Reply = True)}: Print time series for each indicated metric with the number of these metrics per tweet for each day.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+RT: If True, display the time series of retweets per tweet. Default: True; Type: Boolean\\
+Likes: If True, display the time series of likes per tweet. Default: True; Type: Boolean\\
+Quotes: If True, display the time series of quotes per tweet. Default: True; Type: Boolean\\
+Reply: If True, display the time series of replies per tweet. Default: True; Type: Boolean\\
+\textbf{Return}: None\\ 
+\textbf{Action}: Display time series plots indicating the number of  the selected metrics per tweet for each day. 
+\newline
+\newline
+\noindent\textbf{pday\_hashtags(DF: pd.DataFrame, list\_of\_hashtags: list)}: Plot one time series for each hashtag in the list, showing the number of tweets per day that contain the hashtags. All the time series are displayed together in the same plot.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+list\_of\_hashtags: List of hashtags that the user wants to see the time series; Type: List of strings. It is not necessary to include the \# before the hashtag.\\
+\textbf{Return}: None\\ 
+\textbf{Action}: Display time series plot showing the number of  tweets that contains each of the hashtags in the list. 
+\newline
+\newline
+\noindent\textbf{pday\_word(DF: pd.DataFrame, list\_of\_words: list)}: Plot one time series for each word in the list, showing the number of tweets per day that contain the word. All the time series are displayed together in the same plot.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+list\_of\_words: List of words that the user wants to see the time series; Type: List of strings.\\
+\textbf{Return}: None\\ 
+\textbf{Action}: Display time series plot showing the number of  tweets that contains each of the words in the list.
+\newline
+\newline
+\noindent\textbf{popular\_tweets(DF: pd.DataFrame, metric = "Retweets", number = 10)}: Print the n most popular tweets. Popularity is measured as the tweets with the highest number of reactions of the selected metric.\\
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\\
+metric: Name of the metric that the user wants to use to filter. Options: "Likes", "Retweets", "Quotes" or "Replies". Default: ”Retweets”; Type: String\\
+Number: Number of tweets to print. Default: 10; Type: Int\\
+\textbf{Return}: None\\ 
+\textbf{Action}: Print the n tweets most popular according to the selected metric.
+\newline
+\newline
+\noindent\textbf{compare\_word\_pday (DF,list\_of\_words,standarized=True)}: Plot time series with the number (or proportion) of tweets per day that contain at least one of the words of the list for right leaning and left leaning people. Both time series are displayed in the same plot to compare.\\ 
+\textbf{Parameters:}\\
+DF: Data frame with input data; Type: Pandas Dataframe\
+list\_of\_words: List of words that the user wants to see their use on time for right and left leaning people. Type: List of strings
+standardized: If it is True, display the proportion of tweets that contain the words per day, if it is False, display the total number of tweets that contain these words. Default: True; Type: Boolean.\\
+\textbf{Return}: None\\ 
+\textbf{Action}: Time series with the use of the selected words over time for left- and right-wing users.
+

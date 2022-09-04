@@ -1,0 +1,70 @@
+ %\subsection{Limitations and Future Improvements}
+ \subsection{Future Improvements}
+    \label{sec_disc_improv}
+    
+        \paragraph{Advanced Political Affiliation Classification} As shown in Section \ref{sec_res}, the ''unlabeled'' users are a quite heterogeneous group. They seem to include both right- and left-leaning users, neutral users (such as media outlets) and presumably center-leaning users. These users did not use enough political hashtags during the election to survive our threshold for classification.
+        
+        To get a more accurate description of affiliation-specific talking points in the Twittersphere, a future improvement could be to use more advanced classification algorithms to more precisely label users. Possible approaches are machine learning models (considering e.g. users' linguistic patterns, see e.g. \cite{conover_predicting_2011}) or label propagation (from network analysis, see e.g. \cite{raghavan2007near}). As presented in Section \ref{sec_lit}, a lot of research concerning the classification of Twitter users' political affiliation has already been done. Hence, the only obstacle for incorporating this improvement to our methodology is time. 
+        
+        %This group includes users that seem to be left-leaning and right-leaning but did not use enough political hashtags during the election to survive our threshold for classification. It also includes users that seem to identify with center-political positions as they do not use the same hashtags as right-leaning nor left-leaning politicians. Other accounts are media or journalists that in general are neutral. This heterogeneity prevents us from distinguishing the discourse from these groups, as we do not know the proportion of different sub-groups in the ''Unlabeled'' category. 
+            
+        %    \newline\indent
+        %A future improvement of our work is to use machine learning models, label propagation in the network or another method to label affiliations more accurately. Hopefully, such methods would find the remaining left-leaning and right-leaning users currently in the ''Unlabeled'' group, and label the remaining as ''center'' or ''neutral''. A classification algorithm like this would provide more accurate provide insights about their speech and community between political affiliation groups. As presented in the literature review (see Section \ref{sec_lit}) a lot of research concerning the classification of Twitter users' political affiliation has already been done. Hence, the only obstacle for incorporating this improvement to our methodology is time.
+        %As we reviewed in literature review, there exists much research about classifying users by political affiliation using machine learning models. 
+        
+        \paragraph{Bot Detection} 
+        While analyzing Table \ref{tab_net_measure_volume}, we became suspicious that some users might be fake accounts. E.g. we found an active retweeter named \texttt{@j-pablo-escobar}. %with an out-degree measure of 639 (meaning this user sends a high number of retweets related with immigration). 
+        This account has no picture, only a fake and famous alias. The bio states {\it "Patriota, Republicano, voto por kast"} (Eng: "Patriot, Republican, vote for Kast"). Upon manual inspection of this user's activity, we find that the retweets consist of controversial facts or opinion polls which enables his followers to spread these views. Hence, it seems there are some fake accounts in our corpus.
+        
+        There is a growing academic literature regarding bot detection. \cite{efthimion2018supervised} provide a supervised machine leanrning model that detects bots with a 2.25\% of misclassification rate, using as features the length of the username, sentiment expressions, variability of the activity, among others. This approach's main caveat is that it requires information on the full activity of users, which would be computationally exhausting for long lists of users. \cite{knauth2019language} tries to face this problem and provides different models. Some of these require the full activity, but others only need user metadata like username, profile picture, etc. Unfortunately, the Twitter API does not return e.g. profile pictures, and these models also need a manually labeled training dataset.
+        
+        A future improvement to our work is to add bot detection algorithms, to allow for distinguishing human conversations by bot-generated ones. Political institutions might want to filter these out to solely analyze their citizens' opinions.
+        
+        %The use of bots (non-human users) to push topics in Twitter discussions is a common practice. %Many companies offer services of fake accounts to increase the Twitter activity around some messages and topics. 
+        %The topic of bot detection is a relevant discussion in academia, with a growing literature about bot detection. 
+        %For instance, \cite{efthimion2018supervised} provides a supervised machine leanrning model that detects bots with a 2.25\% of misclassification rate, using as features length of the username, sentiment expressions, variability of the activity among others. The main issue with their approach is that it requires information on the full activity of users, which would be computationally and time consuming for long lists of users. \cite{knauth2019language} try to face this problem and provide different models using different sets of features. Some of them require full activity, but others only need user metadata like username, profile picture, changes in the profile, etc. The main problem with this approach is that the Twitter API does not provide all the required information and also that we need a manually labeled training set according to the particular context.     
+        
+        
+        %As of this writing, our methodology does not filter the corpora by bots given the complexity of such classification tasks and the time constraints of our project. It is a relevant issue however, and should be addressed in future iterations in order to distinguish human conversations by bot-generated ones to better understand what is going on with the topic of interest. Bots cannot vote, and their presence in the Twittersphere are therefore not important for political decision makers. As future improvement to our work we propose adding a step to the methodology to classify bots using machine learning algorithms. 
+        
+        
+        
+        %Considering these problems and the time constraint, our work does not count with an algorithm to detect bots, but we know that is a relevant issue. For our purpose, distinguishing the “real” conversation from the conversation generated by bots is important to better understand what is going on with the topic of interest. For this reason, as a future improvement of our work we propose adding in the methodology one step to classify possible bots. 
+        
+        
+        \paragraph{Test Tool Across Countries}
+        We have run our methodology for two topics, immigration and feminism (in Appendix \ref{appsec_feminism}), and validated that the methodology functions well across political topics. It would still have to be tested how well it performs across countries. Testing this might highlight potential issues with the proposed approach in Step 3 of the methodology.
+        
+        
+        \paragraph{Improved Dashboard} If we had substantially more time, the final dashboard could be updated to visualize metrics such as
+        \begin{itemize}
+            \item 
+            Filter by dates, list of authors, verified accounts, accounts with minimum number of follower, tweets that include some word or hashtag and tweets with a minimum number of retweets, likes, quotes or replies.
+            
+            \item 
+            Display number of tweets per day, common hashtags, word clouds, common bigrams, use of selected word over time, most popular tweets (measured by retweets, likes, citations) and metrics per tweet. All of these outputs for the entire data set and also for only left-leaning and right-leaning users.
+            
+            \item 
+            Interactive network results, allowing to highlight any node in the plot.
+            
+            \item
+            Plotting sentiment scores in a given time frame.
+            
+            \item
+            A button to exclude bots from all outputs.
+            %The other future improvements also should be included in the final version of a dashboard. The way to do it is adding one filter to consider only users that are not suspicious bots and adding an output that shows sentiment scores over time. 
+        \end{itemize}
+        This allows the user to extract information such as all the outputs shown in Section \ref{sec_res} (and more) that our current app does not allow. 
+        
+        
+        \paragraph{Extended Feature Engineering (Gender and Age)} Political Affiliation is a relevant covariate to distinguish users, but other ones can also be informative. Trying to classify users by gender (e.g. using common male and female names for instance) %by location (using the \texttt{twarc2}-metadata \texttt{author.location})%
+        or by age (considering users' linguistic patterns as in \cite{rao2010classifying}) could provide more detailed information. This would allow practitioners to better understand the different speeches by different groups and better target their communication strategy. 
+        
+        
+        \paragraph{Sentiment Scores} Researchers such as \cite{perez2021robertuito} and \cite{gonzalez2021twilbert} focus their work in training Bidirectional Encoder Representations from Transformers models  (also known as \texttt{BERT}) in  \cite{devlin2018bert} on Spanish Twitter corpora. They provide libraries that allow researchers to obtain sentiment score and emotion analysis from Spanish tweets. We tried implementing such models, but they are computationally demanding, leading to a trade-off between how quickly results are needed and the value of recently developed methods. Despite this, we think that a future improvement could be to add these indicators to analyze how they change over time and across political affiliations. 
+        
+        
+        \paragraph{Topic Modeling Algorithms} Utilizing topic model algorithms such as the Latent Dirichlet Allocation \citep{blei2003latent} could give further insights into Chilean Twitter users' conversational subtopics within a given main topic.\footnote{In our case, such subtopics could be crime, xenophobia, etc.} We tried implementing LDA in our project but it proved infeasible as it is computationally demanding and not built for short text corpora, such as Twitter data. It might still prove useful in a future iteration of the project. In this project, as of writing, we have approximated the function of LDA by analyzing bigrams, but specific topic modeling algorithms might give a more complex and accurate description of subtopics.
+    
+    
+    
